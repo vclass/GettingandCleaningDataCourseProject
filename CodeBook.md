@@ -15,43 +15,42 @@ Variables
 
  Other variables
   dataset - output variable
-  feature_name - Data Load from feature_name file
+  feature_name - Data Load from feature file
   activity_label - Data Load from activity_label file
   
 Programming Logic
   
-  #Load test Dataset
+  1. Load test Dataset into each variable and then combine subjectid, activityid, and data together
   test_X <- read.table("test/X_test.txt")
   test_y <- read.table("test/y_test.txt")
   subject_test <- read.table("test/subject_test.txt")
   test_data <- cbind(subject_test,test_y,test_X)
   
-  #Load train Dataset
+  2. Load train Dataset into each variable and then combine subjectid, activityid, and data together
   train_X <- read.table("train/X_train.txt")
   train_y <- read.table("train/y_train.txt")
   subject_train <- read.table("train/subject_train.txt")
   train_data <- cbind(subject_train,train_y,train_X)
   
-  #combine test and train data
+  3. combine test and train data together
   dataset <- rbind(test_data,train_data)
   
-  #Load Features Name
+  4. Load Features Name and activity_label and set names
   feature_name <- read.table("features.txt")
-  
-  #Load Activity Label
   activity_label <- read.table("activity_labels.txt")
   names(activity_label) <- c("id","activity")
   
-  #Set Column Name
+  5. Set name of each variables in dataset variables (name of each measurements)
   names(dataset) <- c("subject","activity_id",as.vector(feature_name$V2))
   
-  #Extract only mean and std
+  6. Select only mean and std columns of each measurement by using grep command. Choose columns that have "mean(" or "std" in their name (plus subject and activity_id column) 
   dataset <- dataset[ , which(names(dataset) %in% grep("subject|activity_id|mean[(]|std",names(dataset),value=TRUE))]
   
-  #Merge to label Activity
+  7. Merge dataset with variable name in activity_label variable. Use activity_id and id to join 2 datasets
   dataset <- merge(dataset,activity_label,by.x="activity_id",by.y="id",all=TRUE)
   
-  #Find Average by subject and activity
+
+  8. Find mean of each measurements group by subject and activity(and id)
   require(reshape2)
   df_melt <- melt(dataset, id = c("subject", "activity","activity_id"))
   dataset <- dcast(df_melt, subject+activity + activity_id ~ variable, mean)
