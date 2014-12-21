@@ -55,6 +55,7 @@ Programming Logic
   df_melt <- melt(dataset, id = c("subject", "activity","activity_id"))
   dataset <- dcast(df_melt, subject+activity + activity_id ~ variable, mean)
   
-  return(dataset)
+  9. Write output into "output.txt"
+  write.table(dataset,file="output.txt",row.names=FALSE)
   
 }
