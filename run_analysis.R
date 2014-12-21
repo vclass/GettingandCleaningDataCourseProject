@@ -36,6 +36,6 @@ run_analysis <- function(){
   df_melt <- melt(dataset, id = c("subject", "activity","activity_id"))
   dataset <- dcast(df_melt, subject+activity + activity_id ~ variable, mean)
   
-  return(dataset)
+  write.table(dataset,file="output.txt",row.names=FALSE)
   
 }
