@@ -5,8 +5,13 @@ Codebook.MD
 
 Raw Data
 ===================================
-
-
+1. x_test.txt
+2. y_test.txt
+3. X_train.txt
+4. y_train.txt
+5. subject_train.txt
+6. features.txt
+7. activity_labels.txt
 
 Variables
 ===================================
