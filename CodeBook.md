@@ -15,7 +15,7 @@ Variables
   
   4. test_data - data that combined from test_X, test_y, and subject_test
   
- Train data  
+Train data  
   
   1. train_X - Data Load from train_X file
   
@@ -25,7 +25,7 @@ Variables
   
   4. train_data - data that combined from train_X, train_y, and subject_train
 
- Other variables
+Other variables
  
   1. dataset - output variable
   
