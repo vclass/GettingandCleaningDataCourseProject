@@ -5,13 +5,23 @@ Codebook.MD
 
 Raw Data
 ===================================
+
+Folder test: set of test data
+
 1. x_test.txt
 2. y_test.txt
-3. X_train.txt
-4. y_train.txt
-5. subject_train.txt
-6. features.txt
-7. activity_labels.txt
+3. subject_test.txt
+
+Folder train: set of train data
+
+4. x_train.txt
+5. y_train.txt
+6. subject_train.txt
+
+Others: Description of features and activities. We use these data to assign name to test/train data set.
+
+7. features.txt
+8. activity_labels.txt
 
 Variables
 ===================================
@@ -72,7 +82,7 @@ Transformation and Programming Logic
   
      dataset <- rbind(test_data,train_data)
   
-  4. Load Features Name and activity_label and set names
+  4. Load "Features Name" and "Activity Label" from "features.txt" and "activitiy_labels.txt". 
   
      feature_name <- read.table("features.txt")
   
@@ -80,15 +90,15 @@ Transformation and Programming Logic
   
      names(activity_label) <- c("id","activity")
   
-  5. Set name of each variables in dataset variables (name of each measurements)
+  5. Assign name of each columns in "dataset" (name of each measurements) using feature_name that loaded from step 4)
   
      names(dataset) <- c("subject","activity_id",as.vector(feature_name$V2))
   
-  6. Select only mean and std columns of each measurement by using grep command. Choose columns that have "mean(" or "std" in their name (plus subject and activity_id column) 
+  6. Select only mean and std columns of each measurement by using grep command. Choose columns that have "mean(" or "std" in their name (We also included "subject" and "activity_id" column) 
   
      dataset <- dataset[ , which(names(dataset) %in% grep("subject|activity_id|mean[(]|std",names(dataset),value=TRUE))]
   
-  7. Merge dataset with variable name in activity_label variable. Use activity_id and id to join 2 datasets
+  7. Assign activity label to each activity in "dataset", merging "dataset" with "activity_label" which loaded from step 4. Use activity_id and id to join.
   
      dataset <- merge(dataset,activity_label,by.x="activity_id",by.y="id",all=TRUE)
   
