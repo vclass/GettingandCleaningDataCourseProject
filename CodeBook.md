@@ -58,10 +58,14 @@ Transformation and Programming Logic
   
   
   2. Load train Dataset into each variable and then combine subjectid, activityid, and data together
-  train_X <- read.table("train/X_train.txt")
-  train_y <- read.table("train/y_train.txt")
-  subject_train <- read.table("train/subject_train.txt")
-  train_data <- cbind(subject_train,train_y,train_X)
+  
+      train_X <- read.table("train/X_train.txt")
+  
+      train_y <- read.table("train/y_train.txt")
+  
+      subject_train <- read.table("train/subject_train.txt")
+  
+      train_data <- cbind(subject_train,train_y,train_X)
   
   3. combine test and train data together
   dataset <- rbind(test_data,train_data)
