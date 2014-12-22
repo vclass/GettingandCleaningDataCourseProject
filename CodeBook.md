@@ -15,16 +15,23 @@ Variables
   
   4. test_data - data that combined from test_X, test_y, and subject_test
   
- train data  
-  train_X - Data Load from train_X file
-  train_y - Data Load from train_y file
-  subject_train - Data Load from subject_train file
-  train_data - data that combined from train_X, train_y, and subject_train
+ Train data  
+  
+  1. train_X - Data Load from train_X file
+  
+  2. train_y - Data Load from train_y file
+  
+  3. subject_train - Data Load from subject_train file
+  
+  4. train_data - data that combined from train_X, train_y, and subject_train
 
  Other variables
-  dataset - output variable
-  feature_name - Data Load from feature file
-  activity_label - Data Load from activity_label file
+ 
+  1. dataset - output variable
+  
+  2. feature_name - Data Load from feature file
+  
+  3. activity_label - Data Load from activity_label file
   
 Programming Logic
   
