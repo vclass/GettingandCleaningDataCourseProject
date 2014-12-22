@@ -3,6 +3,11 @@ GettingandCleaningDataCourseProject
 
 Codebook.MD
 
+Raw Data
+===================================
+
+
+
 Variables
 ===================================
  Test data
@@ -33,13 +38,19 @@ Other variables
   
   3. activity_label - Data Load from activity_label file
   
-Programming Logic
+Transformation and Programming Logic
+===================================
   
   1. Load test Dataset into each variable and then combine subjectid, activityid, and data together
+  
   test_X <- read.table("test/X_test.txt")
+
   test_y <- read.table("test/y_test.txt")
+  
   subject_test <- read.table("test/subject_test.txt")
+  
   test_data <- cbind(subject_test,test_y,test_X)
+  
   
   2. Load train Dataset into each variable and then combine subjectid, activityid, and data together
   train_X <- read.table("train/X_train.txt")
