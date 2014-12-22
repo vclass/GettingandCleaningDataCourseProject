@@ -57,8 +57,8 @@ Transformation and Programming Logic
     test_data <- cbind(subject_test,test_y,test_X)
   
   
-  
-   2. Load train Dataset into each variable and then combine subjectid, activityid, and data together
+ 
+  2. Load train Dataset into each variable and then combine subjectid, activityid, and data together
   
       train_X <- read.table("train/X_train.txt")
   
