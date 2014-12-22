@@ -6,13 +6,14 @@ Codebook.MD
 Variables
 ===================================
  Test data
-  test_X - Data Load from test_X file
+ 
+  1. test_X - Data Load from test_X file
   
-  test_y - Data Load from test_y file
+  2. test_y - Data Load from test_y file
   
-  subject_test - Data Load from subject_test file
+  3. subject_test - Data Load from subject_test file
   
-  test_data - data that combined from test_X, test_y, and subject_test
+  4. test_data - data that combined from test_X, test_y, and subject_test
   
  train data  
   train_X - Data Load from train_X file
