@@ -68,29 +68,39 @@ Transformation and Programming Logic
       train_data <- cbind(subject_train,train_y,train_X)
   
   3. combine test and train data together
-  dataset <- rbind(test_data,train_data)
+  
+     dataset <- rbind(test_data,train_data)
   
   4. Load Features Name and activity_label and set names
-  feature_name <- read.table("features.txt")
-  activity_label <- read.table("activity_labels.txt")
-  names(activity_label) <- c("id","activity")
+  
+     feature_name <- read.table("features.txt")
+  
+     activity_label <- read.table("activity_labels.txt")
+  
+     names(activity_label) <- c("id","activity")
   
   5. Set name of each variables in dataset variables (name of each measurements)
-  names(dataset) <- c("subject","activity_id",as.vector(feature_name$V2))
+  
+     names(dataset) <- c("subject","activity_id",as.vector(feature_name$V2))
   
   6. Select only mean and std columns of each measurement by using grep command. Choose columns that have "mean(" or "std" in their name (plus subject and activity_id column) 
-  dataset <- dataset[ , which(names(dataset) %in% grep("subject|activity_id|mean[(]|std",names(dataset),value=TRUE))]
+  
+     dataset <- dataset[ , which(names(dataset) %in% grep("subject|activity_id|mean[(]|std",names(dataset),value=TRUE))]
   
   7. Merge dataset with variable name in activity_label variable. Use activity_id and id to join 2 datasets
-  dataset <- merge(dataset,activity_label,by.x="activity_id",by.y="id",all=TRUE)
+  
+     dataset <- merge(dataset,activity_label,by.x="activity_id",by.y="id",all=TRUE)
   
 
   8. Find mean of each measurements group by subject and activity(and id)
-  require(reshape2)
-  df_melt <- melt(dataset, id = c("subject", "activity","activity_id"))
-  dataset <- dcast(df_melt, subject+activity + activity_id ~ variable, mean)
+  
+     require(reshape2)
+  
+     df_melt <- melt(dataset, id = c("subject", "activity","activity_id"))
+  
+     dataset <- dcast(df_melt, subject+activity + activity_id ~ variable, mean)
   
   9. Write output into "output.txt"
-  write.table(dataset,file="output.txt",row.names=FALSE)
   
-}
+     write.table(dataset,file="output.txt",row.names=FALSE)
+  
