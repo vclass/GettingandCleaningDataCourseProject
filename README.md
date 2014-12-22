@@ -4,13 +4,19 @@ GettingandCleaningDataCourseProject
 File Descriptions
 ===================================
 Folder
+
 1. test - folder that stores all "test" raw files
+
 2. train - folder that stores all "train" raw files
 
 File
+
 1. CodeBook.md -  describes the variables, the data, and any transformations or work that we performed to clean up the data.
+
 2. README.md - describes how all of the scripts work and how they are connected.
+
 3. run_analysis.R - R code to perform data cleasing and transformation.
+
 4. output.txt - output file
 
 
